@@ -16,12 +16,5 @@ export default defineConfig({
     target: "es2020",
     cssCodeSplit: true,
     minify: "esbuild",
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          react: ["react", "react-dom"],
-        },
-      },
-    },
   },
 });
