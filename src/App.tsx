@@ -30,22 +30,14 @@ function useReveal() {
 function Logo() {
   return (
     <a href="#top" className="flex items-center gap-2 group" aria-label="City Bus Transit GmbH">
-      <div className="relative">
-        <svg width="42" height="30" viewBox="0 0 60 40" fill="none" aria-hidden>
-          <path d="M2 28 C 18 8, 40 8, 58 22" stroke="#e6007e" strokeWidth="4" strokeLinecap="round" fill="none" />
-          <path d="M50 18 L58 22 L52 28" stroke="#0b1e3f" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        </svg>
-      </div>
-      <div className="leading-none">
-        <div className="flex items-baseline gap-1 font-black text-[1.15rem] sm:text-xl">
-          <span className="text-brand">City</span>
-          <span className="text-navy">Bus</span>
-          <span className="text-navy">Transit</span>
-        </div>
-        <div className="mt-0.5 flex items-center gap-1 text-[10px] font-semibold tracking-[0.25em] text-navy/70">
-          <span className="h-px w-3 bg-navy/40" /> GmbH <span className="h-px w-3 bg-navy/40" />
-        </div>
-      </div>
+      <img
+        src={logoAsset.url}
+        alt="City Bus Transit GmbH Logo"
+        width={160}
+        height={48}
+        className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+        loading="eager"
+      />
     </a>
   );
 }
