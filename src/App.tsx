@@ -390,6 +390,10 @@ function Footer() {
       <div className="border-t border-white/10">
         <div className="container-x py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
           <div>© {new Date().getFullYear()} City Bus Transit GmbH. Alle Rechte vorbehalten.</div>
+          <div className="flex items-center gap-2">
+            <span>Entwickelt von:</span>
+            <span className="font-semibold text-white/80">Fazilyar</span>
+          </div>
           <div className="flex gap-5">
             <a href="#" className="hover:text-brand transition-colors">Impressum</a>
             <a href="#" className="hover:text-brand transition-colors">Datenschutz</a>
