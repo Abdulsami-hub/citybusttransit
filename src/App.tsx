@@ -140,18 +140,6 @@ function Hero() {
             </a>
           </div>
 
-          <div className="mt-10 sm:mt-14 grid grid-cols-3 gap-4 sm:gap-6 max-w-md animate-fade-up" style={{ animationDelay: "0.45s" }}>
-            {[
-              { n: "15+", l: "Jahre Erfahrung" },
-              { n: "500+", l: "Zufriedene Kunden" },
-              { n: "24/7", l: "Service" },
-            ].map((s) => (
-              <div key={s.l}>
-                <div className="text-2xl sm:text-3xl font-black text-brand">{s.n}</div>
-                <div className="text-[11px] sm:text-xs text-navy/60 font-medium mt-0.5">{s.l}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
