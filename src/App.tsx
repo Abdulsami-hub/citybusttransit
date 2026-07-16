@@ -104,7 +104,7 @@ function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] flex items-center overflow-hidden pt-20 sm:pt-24">
       <img
-        src={heroImg}
+        src={heroImg.url}
         alt="City Bus Transit Busse"
         width={1920}
         height={1080}
