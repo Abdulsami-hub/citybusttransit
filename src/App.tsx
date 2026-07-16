@@ -378,9 +378,24 @@ function Footer() {
       <div className="border-t border-white/10">
         <div className="container-x py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
           <div>© {new Date().getFullYear()} City Bus Transit GmbH. Alle Rechte vorbehalten.</div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-center">
             <span>Entwickelt von:</span>
-            <span className="font-semibold text-white/80">Fazilyar</span>
+            <a
+              href="https://wa.me/93766669569"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-white/80 hover:text-brand transition-colors"
+              aria-label="Fazilyar über WhatsApp kontaktieren"
+            >
+              Fazilyar
+            </a>
+            <span className="hidden sm:inline text-white/30">·</span>
+            <a
+              href="mailto:abdulsamifazilyar@gmail.com"
+              className="text-white/80 hover:text-brand transition-colors underline underline-offset-2"
+            >
+              abdulsamifazilyar@gmail.com
+            </a>
           </div>
           <div className="flex gap-5">
             <a href="#" className="hover:text-brand transition-colors">Impressum</a>
