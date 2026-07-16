@@ -3,7 +3,7 @@ import {
   Shield, Users, Calendar, Camera, Bus, TrainFront,
   UserCircle2, Headphones, Euro, Mail, Phone, MapPin, ArrowRight, Menu, X, CheckCircle2,
 } from "lucide-react";
-import heroImg from "@/assets/hero-buses.jpg";
+import heroImg from "@/assets/hero-buses.jpg.asset.json";
 import logoAsset from "@/assets/city-bus-transit-logo.png.asset.json";
 
 /* ---------- Scroll reveal hook ---------- */
@@ -104,7 +104,7 @@ function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] flex items-center overflow-hidden pt-20 sm:pt-24">
       <img
-        src={heroImg}
+        src={heroImg.url}
         alt="City Bus Transit Busse"
         width={1920}
         height={1080}
