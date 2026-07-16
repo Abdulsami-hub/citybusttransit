@@ -381,7 +381,7 @@ function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-center">
             <span>Entwickelt von:</span>
             <a
-              href="https://wa.me/0766669569"
+              href="https://wa.me/93766669569"
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-white/80 hover:text-brand transition-colors"
