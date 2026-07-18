@@ -389,13 +389,6 @@ function Footer() {
             >
               Fazilyar
             </a>
-            <span className="hidden sm:inline text-white/30">·</span>
-            <a
-              href="mailto:abdulsamifazilyar@gmail.com"
-              className="text-white/80 hover:text-brand transition-colors underline underline-offset-2"
-            >
-              abdulsamifazilyar@gmail.com
-            </a>
           </div>
           <div className="flex gap-5">
             <a href="#" className="hover:text-brand transition-colors">Impressum</a>
