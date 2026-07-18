@@ -5,8 +5,10 @@ import {
 } from "lucide-react";
 import heroImgUrl from "@/assets/img/hero-buses.jpg";
 import logoUrl from "@/assets/img/logo.png";
+import sevImgUrl from "@/assets/img/ersatzverkehr-sev.png";
 const heroImg = { url: heroImgUrl };
 const logoAsset = { url: logoUrl };
+const sevImg = { url: sevImgUrl };
 
 /* ---------- Scroll reveal hook ---------- */
 function useReveal() {
@@ -104,7 +106,10 @@ function Nav() {
 /* ---------- Hero ---------- */
 function Hero() {
   return (
-    <section id="top" className="relative min-h-[100svh] flex items-center overflow-hidden pt-20 sm:pt-24">
+    <section
+      id="top"
+      className="relative overflow-hidden bg-white pt-16 sm:pt-20 md:min-h-[100svh] md:flex md:items-center md:pt-24"
+    >
       <img
         src={heroImg.url}
         alt="City Bus Transit Busse"
@@ -112,36 +117,37 @@ function Hero() {
         height={1080}
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="relative z-0 block w-full h-auto md:absolute md:inset-0 md:h-full md:object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent md:from-white/95 md:via-white/70 md:to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-transparent to-transparent md:hidden" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-white/55 via-white/35 to-transparent md:from-white/95 md:via-white/70 md:to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-white/50 via-transparent to-transparent md:hidden" />
 
-      <div className="container-x relative z-10 py-12 sm:py-16">
-        <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-1.5 text-xs font-semibold text-brand mb-6 animate-fade-up">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
-            Premium Bus-Charter aus Garbsen
+      <div className="absolute inset-0 z-10 flex items-center pt-16 sm:pt-20 md:static md:pt-0">
+        <div className="container-x relative w-full py-5 sm:py-8 md:py-16">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-3 py-1 sm:px-4 sm:py-1.5 text-[11px] sm:text-xs font-semibold text-brand mb-3 sm:mb-6 animate-fade-up">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
+              Premium Bus-Charter aus Garbsen
+            </div>
+            <h1 className="animate-fade-up text-3xl sm:text-5xl lg:text-6xl font-black text-navy leading-[1.05] tracking-tight">
+              Ihr zuverlässiger
+              <br />
+              <span className="bg-gradient-to-r from-brand to-brand-dark bg-clip-text text-transparent">
+                Partner für Busreisen
+              </span>
+            </h1>
+            <p className="mt-3 sm:mt-6 text-sm sm:text-lg text-navy/70 max-w-lg animate-fade-up" style={{ animationDelay: "0.15s" }}>
+              Sicher, komfortabel und pünktlich – wir bringen Sie ans Ziel.
+            </p>
+            <div className="mt-4 sm:mt-8 flex flex-nowrap items-center gap-2 sm:gap-3 animate-fade-up" style={{ animationDelay: "0.3s" }}>
+              <a href="#leistungen" className="btn-primary shrink-0 !text-sm !py-2 !px-3.5 sm:!text-base sm:!py-3.5 sm:!px-6 gap-1.5 sm:gap-2">
+                Mehr erfahren <ArrowRight className="size-4 sm:size-[18px]" />
+              </a>
+              <a href="#kontakt" className="inline-flex items-center shrink-0 px-3 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-semibold text-navy hover:text-brand transition-colors whitespace-nowrap">
+                Angebot anfragen
+              </a>
+            </div>
           </div>
-          <h1 className="animate-fade-up text-4xl sm:text-5xl lg:text-6xl font-black text-navy leading-[1.05] tracking-tight">
-            Ihr zuverlässiger
-            <br />
-            <span className="bg-gradient-to-r from-brand to-brand-dark bg-clip-text text-transparent">
-              Partner für Busreisen
-            </span>
-          </h1>
-          <p className="mt-5 sm:mt-6 text-base sm:text-lg text-navy/70 max-w-lg animate-fade-up" style={{ animationDelay: "0.15s" }}>
-            Sicher, komfortabel und pünktlich – wir bringen Sie ans Ziel.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            <a href="#leistungen" className="btn-primary">
-              Mehr erfahren <ArrowRight size={18} />
-            </a>
-            <a href="#kontakt" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-navy hover:text-brand transition-colors">
-              Angebot anfragen
-            </a>
-          </div>
-
         </div>
       </div>
     </section>
@@ -170,19 +176,40 @@ function Services() {
         </div>
 
         <div className="mt-12 grid gap-4 sm:gap-5 grid-cols-2 lg:grid-cols-5">
-          {services.map((s, i) => (
-            <div
-              key={s.title}
-              className="reveal hover-lift group bg-card rounded-2xl p-6 border border-slate-100 flex flex-col items-center text-center"
-              style={{ transitionDelay: `${i * 80}ms` }}
-            >
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand/10 to-brand/5 flex items-center justify-center text-brand group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                {s.icon}
+          {services.map((s, i) => {
+            const isLast = i === services.length - 1;
+            return (
+              <div
+                key={s.title}
+                className={[
+                  "reveal hover-lift group bg-card rounded-2xl p-6 border border-slate-100",
+                  isLast
+                    ? "col-span-2 lg:col-span-1 flex flex-row lg:flex-col items-center text-left lg:text-center gap-4 lg:gap-0"
+                    : "flex flex-col items-center text-center",
+                ].join(" ")}
+                style={{ transitionDelay: `${i * 80}ms` }}
+              >
+                <div className="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-brand/10 to-brand/5 flex items-center justify-center text-brand group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                  {s.icon}
+                </div>
+                <div className={isLast ? "min-w-0 lg:mt-5" : undefined}>
+                  <h3 className={`text-sm font-bold tracking-wider text-navy uppercase ${isLast ? "" : "mt-5"}`}>
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-navy/60 leading-relaxed">{s.desc}</p>
+                </div>
               </div>
-              <h3 className="mt-5 text-sm font-bold tracking-wider text-navy uppercase">{s.title}</h3>
-              <p className="mt-2 text-sm text-navy/60 leading-relaxed">{s.desc}</p>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        <div className="reveal mt-10 sm:mt-14 flex justify-center">
+          <img
+            src={sevImg.url}
+            alt="Ersatzverkehr (SEV) – Notverkehr: freundliches Verhalten, pünktlich & zuverlässig, sicher unterwegs"
+            className="w-full max-w-2xl lg:w-3/5 lg:max-w-none h-auto rounded-2xl shadow-sm"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
@@ -204,7 +231,7 @@ function WhyUs() {
         <div className="reveal text-center max-w-2xl mx-auto">
           <div className="text-xs font-bold tracking-[0.25em] text-brand mb-3">WARUM CITY BUS TRANSIT?</div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight">
-            Vertrauen, das Sie spüren
+            Zuverlässige Mobilität – jederzeit einsatzbereit.
           </h2>
         </div>
 
