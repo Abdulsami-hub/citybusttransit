@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import {
   Shield, Users, Calendar, Camera, Bus, TrainFront,
   UserCircle2, Headphones, Euro, Mail, Phone, MapPin, ArrowRight, Menu, X, CheckCircle2,
 } from "lucide-react";
+import { toast } from "sonner";
+import { sendContactEmail, validateContactForm } from "@/lib/emailjs";
 import heroImgUrl from "@/assets/img/hero-buses.jpg";
 import logoUrl from "@/assets/img/logo.png";
 import sevImgUrl from "@/assets/img/ersatzverkehr-sev.png";
@@ -297,7 +299,51 @@ function ReasonCard({ icon, title, desc, delay }: { icon: ReactNode; title: stri
 
 /* ---------- Contact ---------- */
 function Contact() {
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (status === "sending") return;
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const name = String(data.get("name") ?? "");
+    const email = String(data.get("email") ?? "");
+    const phone = String(data.get("phone") ?? "").trim();
+    const message = String(data.get("message") ?? "");
+
+    const payload = {
+      name,
+      email,
+      subject: phone ? `Kontaktanfrage / Tel: ${phone}` : "Kontaktanfrage über Website",
+      message: phone ? `Telefonnummer: ${phone}\n\n${message}` : message,
+    };
+
+    const validationError = validateContactForm(payload);
+    if (validationError) {
+      toast.error(validationError);
+      return;
+    }
+
+    setStatus("sending");
+
+    try {
+      await sendContactEmail(payload);
+      setStatus("sent");
+      toast.success("Nachricht erfolgreich gesendet. Wir melden uns bald bei Ihnen.");
+      form.reset();
+      window.setTimeout(() => setStatus("idle"), 4000);
+    } catch (error) {
+      setStatus("idle");
+      const messageText =
+        error instanceof Error
+          ? error.message
+          : "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.";
+      toast.error(messageText);
+    }
+  }
+
   return (
     <section id="kontakt" className="py-20 sm:py-28 bg-gradient-to-b from-surface to-white">
       <div className="container-x">
@@ -320,12 +366,7 @@ function Contact() {
 
           <form
             className="reveal bg-white rounded-3xl p-6 sm:p-8 shadow-[0_30px_60px_-30px_rgba(11,30,63,0.25)] border border-slate-100"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setStatus("sent");
-              setTimeout(() => setStatus("idle"), 4000);
-              (e.target as HTMLFormElement).reset();
-            }}
+            onSubmit={handleSubmit}
           >
             <h3 className="text-xl font-black text-navy">Kontaktieren Sie uns</h3>
             <p className="text-sm text-navy/60 mt-1">Antwort innerhalb von 24 Stunden.</p>
@@ -336,8 +377,10 @@ function Contact() {
               <Field label="Telefonnummer" name="phone" type="tel" />
               <Field label="Nachricht" name="message" required textarea />
 
-              <button type="submit" className="btn-accent w-full">
-                {status === "sent" ? (
+              <button type="submit" className="btn-accent w-full" disabled={status === "sending"}>
+                {status === "sending" ? (
+                  "Wird gesendet..."
+                ) : status === "sent" ? (
                   <>
                     <CheckCircle2 size={18} /> Nachricht gesendet
                   </>
