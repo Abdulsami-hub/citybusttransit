@@ -15,6 +15,6 @@ export default defineConfig({
     assetsDir: "assets",
     target: "es2020",
     cssCodeSplit: true,
-    minify: "esbuild",
+    minify: "oxc",
   },
 });
