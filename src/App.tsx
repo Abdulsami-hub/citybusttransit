@@ -259,7 +259,7 @@ function ReasonCard({ icon, title, desc, delay }: { icon: ReactNode; title: stri
         {icon}
       </div>
       <div className="min-w-0">
-        <h4 className="font-bold text-navy">{title}</h4>
+        <h3 className="font-bold text-navy">{title}</h3>
         <p className="mt-1 text-sm text-navy/60 leading-relaxed">{desc}</p>
       </div>
     </div>
