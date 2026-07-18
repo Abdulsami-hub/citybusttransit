@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://citybustransit.lovable.app/sitemap.xml
