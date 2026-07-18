@@ -390,10 +390,6 @@ function Footer() {
               Fazilyar
             </a>
           </div>
-          <div className="flex gap-5">
-            <a href="#" className="hover:text-brand transition-colors">Impressum</a>
-            <a href="#" className="hover:text-brand transition-colors">Datenschutz</a>
-          </div>
         </div>
       </div>
     </footer>
