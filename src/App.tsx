@@ -307,14 +307,7 @@ function Contact() {
               <Field label="Telefonnummer" name="phone" type="tel" />
               <Field label="Nachricht" name="message" required textarea />
 
-              <label className="flex items-start gap-3 text-sm text-navy/70 cursor-pointer">
-                <input type="checkbox" required className="mt-1 accent-brand w-4 h-4" />
-                <span>
-                  Ich habe die <a href="#" className="text-brand font-semibold underline underline-offset-2">Datenschutzerklärung</a> gelesen und zur Kenntnis genommen.
-                </span>
-              </label>
-
-              <button type="submit" className="btn-accent w-full mt-2">
+              <button type="submit" className="btn-accent w-full">
                 {status === "sent" ? (
                   <>
                     <CheckCircle2 size={18} /> Nachricht gesendet
