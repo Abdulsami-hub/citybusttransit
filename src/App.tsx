@@ -3,8 +3,10 @@ import {
   Shield, Users, Calendar, Camera, Bus, TrainFront,
   UserCircle2, Headphones, Euro, Mail, Phone, MapPin, ArrowRight, Menu, X, CheckCircle2,
 } from "lucide-react";
-import heroImg from "@/assets/hero-buses.jpg.asset.json";
-import logoAsset from "@/assets/city-bus-transit-logo.png.asset.json";
+import heroImgUrl from "@/assets/img/hero-buses.jpg";
+import logoUrl from "@/assets/img/logo.png";
+const heroImg = { url: heroImgUrl };
+const logoAsset = { url: logoUrl };
 
 /* ---------- Scroll reveal hook ---------- */
 function useReveal() {
