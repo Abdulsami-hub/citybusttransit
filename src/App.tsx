@@ -73,7 +73,7 @@ function Nav() {
     >
       <div className="container-x flex items-center justify-between py-3 sm:py-4">
         <Logo />
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8" aria-label="Hauptnavigation">
           {links.map((l) => (
             <a key={l.href} href={l.href} className="text-sm font-semibold text-navy/80 hover:text-brand transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-brand hover:after:w-full after:transition-all">
               {l.label}
@@ -84,14 +84,16 @@ function Nav() {
         <button
           className="md:hidden p-2 text-navy"
           onClick={() => setOpen((v) => !v)}
-          aria-label="Menü"
+          aria-label={open ? "Menü schließen" : "Menü öffnen"}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
       {open && (
-        <div className="md:hidden bg-white border-t border-slate-100 animate-fade-up">
-          <div className="container-x flex flex-col py-3 gap-1">
+        <div id="mobile-nav" className="md:hidden bg-white border-t border-slate-100 animate-fade-up">
+          <div className="container-x flex flex-col py-3 gap-1" role="navigation" aria-label="Mobile Navigation">
             {links.map((l) => (
               <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-3 text-navy font-semibold border-b border-slate-100">
                 {l.label}
@@ -114,15 +116,15 @@ function Hero() {
     >
       <img
         src={heroImg.url}
-        alt="City Bus Transit Busse"
+        alt="City Bus Transit Flotte – moderne Reisebusse für Busreisen und Shuttle-Service in Garbsen und Hannover"
         width={1920}
         height={1080}
         fetchPriority="high"
         decoding="async"
         className="relative z-0 block w-full h-auto md:absolute md:inset-0 md:h-full md:object-cover"
       />
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-white/55 via-white/35 to-transparent md:from-white/95 md:via-white/70 md:to-transparent" />
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-white/50 via-transparent to-transparent md:hidden" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-white/40 via-white/20 to-transparent md:from-white/45 md:via-white/20 md:to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-white/30 via-transparent to-transparent md:from-white/25" />
 
       <div className="absolute inset-0 z-10 flex items-center pt-16 sm:pt-20 md:static md:pt-0">
         <div className="container-x relative w-full py-5 sm:py-8 md:py-16">
@@ -139,7 +141,7 @@ function Hero() {
               </span>
             </h1>
             <p className="mt-3 sm:mt-6 text-sm sm:text-lg text-navy/70 max-w-lg animate-fade-up" style={{ animationDelay: "0.15s" }}>
-              Sicher, komfortabel und pünktlich – wir bringen Sie ans Ziel.
+              Sicher, komfortabel und pünktlich – Busreisen und Shuttle aus Garbsen für Hannover und Umgebung.
             </p>
             <div className="mt-4 sm:mt-8 flex flex-nowrap items-center gap-2 sm:gap-3 animate-fade-up" style={{ animationDelay: "0.3s" }}>
               <a href="#leistungen" className="btn-primary shrink-0 !text-sm !py-2 !px-3.5 sm:!text-base sm:!py-3.5 sm:!px-6 gap-1.5 sm:gap-2">
@@ -168,21 +170,31 @@ const services: Service[] = [
 
 function Services() {
   return (
-    <section id="leistungen" className="py-20 sm:py-28 bg-surface">
+    <section id="leistungen" className="py-20 sm:py-28 bg-surface" aria-labelledby="leistungen-heading">
       <div className="container-x">
         <div className="reveal max-w-2xl">
           <div className="text-xs font-bold tracking-[0.25em] text-brand mb-3">UNSERE LEISTUNGEN</div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight">
+          <h2 id="leistungen-heading" className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight">
             Massgeschneiderte Fahrten für jeden Anlass
           </h2>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:gap-5 grid-cols-2 lg:grid-cols-5">
+        <div className="reveal mt-10 sm:mt-14 flex justify-center">
+          <img
+            src={sevImg.url}
+            alt="Ersatzverkehr (SEV) – Notverkehr: freundliches Verhalten, pünktlich & zuverlässig, sicher unterwegs"
+            className="w-full max-w-2xl lg:w-3/5 lg:max-w-none h-auto rounded-2xl shadow-sm"
+            loading="lazy"
+          />
+        </div>
+
+        <div className="mt-10 sm:mt-14 grid gap-4 sm:gap-5 grid-cols-2 lg:grid-cols-5" role="list">
           {services.map((s, i) => {
             const isLast = i === services.length - 1;
             return (
-              <div
+              <article
                 key={s.title}
+                role="listitem"
                 className={[
                   "reveal hover-lift group bg-card rounded-2xl p-6 border border-slate-100",
                   isLast
@@ -200,18 +212,9 @@ function Services() {
                   </h3>
                   <p className="mt-2 text-sm text-navy/60 leading-relaxed">{s.desc}</p>
                 </div>
-              </div>
+              </article>
             );
           })}
-        </div>
-
-        <div className="reveal mt-10 sm:mt-14 flex justify-center">
-          <img
-            src={sevImg.url}
-            alt="Ersatzverkehr (SEV) – Notverkehr: freundliches Verhalten, pünktlich & zuverlässig, sicher unterwegs"
-            className="w-full max-w-2xl lg:w-3/5 lg:max-w-none h-auto rounded-2xl shadow-sm"
-            loading="lazy"
-          />
         </div>
       </div>
     </section>
@@ -228,11 +231,11 @@ const reasons = [
 
 function WhyUs() {
   return (
-    <section id="warum" className="py-20 sm:py-28 bg-white">
+    <section id="warum" className="py-20 sm:py-28 bg-white" aria-labelledby="warum-heading">
       <div className="container-x">
         <div className="reveal text-center max-w-2xl mx-auto">
           <div className="text-xs font-bold tracking-[0.25em] text-brand mb-3">WARUM CITY BUS TRANSIT?</div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight">
+          <h2 id="warum-heading" className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight">
             Zuverlässige Mobilität – jederzeit einsatzbereit.
           </h2>
         </div>
@@ -345,12 +348,12 @@ function Contact() {
   }
 
   return (
-    <section id="kontakt" className="py-20 sm:py-28 bg-gradient-to-b from-surface to-white">
+    <section id="kontakt" className="py-20 sm:py-28 bg-gradient-to-b from-surface to-white" aria-labelledby="kontakt-heading">
       <div className="container-x">
         <div className="grid lg:grid-cols-2 gap-10 items-start">
           <div className="reveal">
             <div className="text-xs font-bold tracking-[0.25em] text-brand mb-3">KONTAKT</div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight">
+            <h2 id="kontakt-heading" className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy leading-tight">
               Planen Sie Ihre nächste Fahrt mit uns!
             </h2>
             <p className="mt-4 text-navy/70 max-w-lg">
@@ -434,42 +437,23 @@ function Field({
 /* ---------- Footer ---------- */
 function Footer() {
   return (
-    <footer className="bg-navy-deep text-white">
-      <div className="container-x py-12 grid gap-8 md:grid-cols-3">
-        <FooterItem icon={<Mail size={20} />} label="info@citybustransit.de" href="mailto:info@citybustransit.de" />
-        <FooterItem icon={<Phone size={20} />} label="+49 511 900 800 00" href="tel:+495119008000" />
-        <FooterItem icon={<MapPin size={20} />} label={<>Bremer Str 29a<br />30827 Garbsen</>} />
-      </div>
-      <div className="border-t border-white/10">
-        <div className="container-x py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
-          <div>© {new Date().getFullYear()} City Bus Transit GmbH. Alle Rechte vorbehalten.</div>
-          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-center">
-            <span>Entwickelt von:</span>
-            <a
-              href="https://wa.me/93766669569"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-white/80 hover:text-brand transition-colors"
-              aria-label="Fazilyar über WhatsApp kontaktieren"
-            >
-              Fazilyar
-            </a>
-          </div>
+    <footer className="bg-navy-deep text-white border-t border-white/10">
+      <div className="container-x py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
+        <div>© {new Date().getFullYear()} City Bus Transit GmbH. Alle Rechte vorbehalten.</div>
+        <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-center">
+          <span>Entwickelt von:</span>
+          <a
+            href="https://wa.me/93766669569"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-white/80 hover:text-brand transition-colors"
+            aria-label="Fazilyar über WhatsApp kontaktieren"
+          >
+            Fazilyar
+          </a>
         </div>
       </div>
     </footer>
-  );
-}
-
-function FooterItem({ icon, label, href }: { icon: ReactNode; label: ReactNode; href?: string }) {
-  const Wrap: any = href ? "a" : "div";
-  return (
-    <Wrap href={href} className="flex items-center gap-4 group">
-      <div className="w-12 h-12 rounded-full bg-brand flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-        {icon}
-      </div>
-      <div className="text-sm font-medium text-white/90">{label}</div>
-    </Wrap>
   );
 }
 

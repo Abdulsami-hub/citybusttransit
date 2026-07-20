@@ -1,0 +1,30 @@
+{
+  "name": "City Bus Transit GmbH",
+  "short_name": "City Bus Transit",
+  "description": "Busreisen, Shuttle-Service und Schienenersatzverkehr aus Garbsen für Hannover und Umgebung.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b1e3f",
+  "theme_color": "#0b1e3f",
+  "lang": "de-DE",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

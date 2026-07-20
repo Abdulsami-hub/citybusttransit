@@ -1,7 +1,23 @@
 # City Bus Transit GmbH
 
-> Sichere, komfortable und pünktliche Busreisen aus Garbsen – Vereinsfahrten, Shuttle-Service, Gruppen-, Event- und Tagesfahrten sowie Schienenersatzverkehr.
+> Sichere, komfortable und pünktliche Busreisen aus Garbsen (Hannover) – Vereinsfahrten, Shuttle-Service, Gruppen-, Event- und Tagesfahrten sowie Schienenersatzverkehr (SEV).
+
+## Site
+- Canonical: https://citybustransit.de/
+- Language: de-DE
+- Contact: info@citybustransit.de | +49 511 900 800 00
+- Address: Bremer Str 29a, 30827 Garbsen, Germany
 
 ## Pages
+- [Startseite](https://citybustransit.de/): Überblick über Leistungen, Vorteile und Kontakt
+- [Leistungen](https://citybustransit.de/#leistungen): Vereinsfahrten, Shuttle, Gruppen, Events, Tagesfahrten, SEV
+- [Warum wir](https://citybustransit.de/#warum): Sicherheit, Fahrer, Preise, Service
+- [Kontakt](https://citybustransit.de/#kontakt): Anfrageformular und Kontaktdaten
 
-- [Startseite](/): Überblick über City Bus Transit GmbH, Leistungen und Kontakt.
+## Services
+- Vereinsfahrten
+- Shuttle-Service
+- Gruppenfahrten
+- Eventfahrten
+- Tagesfahrten
+- Schienenersatzverkehr / Notverkehr (SEV)

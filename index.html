@@ -4,23 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#0b1e3f" />
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/favicon.png" />
-    <link rel="canonical" href="https://citybustransit.de/" />
+    <meta name="color-scheme" content="light" />
 
-    <title>City Bus Transit GmbH – Ihr zuverlässiger Partner für Busreisen</title>
-    <meta name="description" content="City Bus Transit GmbH – sichere, komfortable und pünktliche Busreisen. Vereinsfahrten, Shuttle-Service, Gruppenfahrten, Eventfahrten und Tagesfahrten aus Garbsen.">
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="48x48" />
+    <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="canonical" href="https://citybustransit.de/" />
+    <link rel="alternate" hreflang="de" href="https://citybustransit.de/" />
+    <link rel="alternate" hreflang="x-default" href="https://citybustransit.de/" />
+
+    <title>Busreisen &amp; Shuttle Garbsen | City Bus Transit GmbH – Hannover</title>
+    <meta
+      name="description"
+      content="City Bus Transit GmbH in Garbsen: Busreisen, Shuttle-Service, Vereins-, Gruppen-, Event- und Tagesfahrten sowie Schienenersatzverkehr (SEV) in Hannover und Umgebung. Jetzt Angebot anfragen."
+    />
     <meta name="author" content="City Bus Transit GmbH" />
-    <meta name="keywords" content="Busreisen, Busvermietung, Shuttle Service, Vereinsfahrten, Gruppenfahrten, Eventfahrten, Tagesfahrten, Garbsen, Hannover, Schienenersatzverkehr" />
+    <meta
+      name="keywords"
+      content="Busreisen Garbsen, Shuttle Service Hannover, Busvermietung, Vereinsfahrten, Gruppenfahrten, Eventfahrten, Tagesfahrten, Schienenersatzverkehr SEV, Notverkehr, Bus charter Garbsen"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="geo.region" content="DE-NI" />
+    <meta name="geo.placename" content="Garbsen" />
+    <meta name="geo.position" content="52.432;9.609" />
+    <meta name="ICBM" content="52.432, 9.609" />
 
     <meta property="og:type" content="website" />
-    
-    
-    <meta property="og:url" content="/" />
+    <meta property="og:site_name" content="City Bus Transit GmbH" />
+    <meta property="og:url" content="https://citybustransit.de/" />
     <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content="Busreisen &amp; Shuttle Garbsen | City Bus Transit GmbH" />
+    <meta
+      property="og:description"
+      content="Sichere, komfortable und pünktliche Busreisen aus Garbsen – Shuttle, Vereins-, Gruppen-, Event- und Tagesfahrten sowie SEV für Hannover und Umgebung."
+    />
+    <meta property="og:image" content="https://citybustransit.de/og-image.png" />
+    <meta property="og:image:secure_url" content="https://citybustransit.de/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="City Bus Transit GmbH Logo" />
+
     <meta name="twitter:card" content="summary_large_image" />
-    
-    
+    <meta name="twitter:title" content="Busreisen &amp; Shuttle Garbsen | City Bus Transit GmbH" />
+    <meta
+      name="twitter:description"
+      content="Sichere, komfortable und pünktliche Busreisen aus Garbsen – Shuttle, Vereins-, Gruppen-, Event- und Tagesfahrten sowie SEV."
+    />
+    <meta name="twitter:image" content="https://citybustransit.de/og-image.png" />
+    <meta name="twitter:image:alt" content="City Bus Transit GmbH Logo" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,38 +66,239 @@
         "@graph": [
           {
             "@type": "Organization",
+            "@id": "https://citybustransit.de/#organization",
             "name": "City Bus Transit GmbH",
+            "legalName": "City Bus Transit GmbH",
             "url": "https://citybustransit.de/",
-            "logo": "https://citybustransit.de/favicon.png",
-            "sameAs": []
-          },
-          {
-            "@type": "LocalBusiness",
-            "name": "City Bus Transit GmbH",
-            "image": "/og-image.jpg",
-            "logo": "https://citybustransit.de/favicon.png",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://citybustransit.de/#logo",
+              "url": "https://citybustransit.de/logo-square.png",
+              "contentUrl": "https://citybustransit.de/logo-square.png",
+              "width": 1584,
+              "height": 1584,
+              "caption": "City Bus Transit GmbH"
+            },
+            "image": {
+              "@id": "https://citybustransit.de/#logo"
+            },
             "email": "info@citybustransit.de",
-            "telephone": "+49 511 900 800 00",
+            "telephone": "+49-511-900-800-00",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Bremer Str 29a",
               "postalCode": "30827",
               "addressLocality": "Garbsen",
+              "addressRegion": "Niedersachsen",
               "addressCountry": "DE"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+49-511-900-800-00",
+              "email": "info@citybustransit.de",
+              "contactType": "customer service",
+              "areaServed": ["DE", "Garbsen", "Hannover"],
+              "availableLanguage": ["German", "de"]
+            },
+            "sameAs": []
+          },
+          {
+            "@type": ["LocalBusiness", "TravelAgency"],
+            "@id": "https://citybustransit.de/#localbusiness",
+            "name": "City Bus Transit GmbH",
+            "url": "https://citybustransit.de/",
+            "image": [
+              "https://citybustransit.de/og-image.png",
+              "https://citybustransit.de/logo-square.png"
+            ],
+            "logo": {
+              "@id": "https://citybustransit.de/#logo"
+            },
+            "email": "info@citybustransit.de",
+            "telephone": "+49-511-900-800-00",
+            "priceRange": "$$",
+            "currenciesAccepted": "EUR",
+            "paymentAccepted": "Bank Transfer, Invoice",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Bremer Str 29a",
+              "postalCode": "30827",
+              "addressLocality": "Garbsen",
+              "addressRegion": "Niedersachsen",
+              "addressCountry": "DE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 52.432,
+              "longitude": 9.609
+            },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "Garbsen"
+              },
+              {
+                "@type": "City",
+                "name": "Hannover"
+              },
+              {
+                "@type": "AdministrativeArea",
+                "name": "Niedersachsen"
+              }
+            ],
+            "parentOrganization": {
+              "@id": "https://citybustransit.de/#organization"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Busleistungen",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Vereinsfahrten",
+                    "description": "Gemeinsam unterwegs für Ihren Verein."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Shuttle-Service",
+                    "description": "Zuverlässiger Shuttle für Events und Unternehmen."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Gruppenfahrten",
+                    "description": "Für Gruppen jeder Größe die passende Lösung."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Eventfahrten",
+                    "description": "Sicher zu Konzerten, Messen und Events."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Tagesfahrten",
+                    "description": "Entdecken Sie neue Orte mit unseren Tagesfahrten."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Schienenersatzverkehr (SEV)",
+                    "description": "Ersatzverkehr und Notverkehr – pünktlich, zuverlässig und sicher."
+                  }
+                }
+              ]
             }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://citybustransit.de/#website",
+            "name": "City Bus Transit GmbH",
+            "url": "https://citybustransit.de/",
+            "inLanguage": "de-DE",
+            "publisher": {
+              "@id": "https://citybustransit.de/#organization"
+            },
+            "about": {
+              "@id": "https://citybustransit.de/#localbusiness"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://citybustransit.de/#webpage",
+            "url": "https://citybustransit.de/",
+            "name": "Busreisen & Shuttle Garbsen | City Bus Transit GmbH – Hannover",
+            "description": "City Bus Transit GmbH in Garbsen: Busreisen, Shuttle-Service, Vereins-, Gruppen-, Event- und Tagesfahrten sowie Schienenersatzverkehr (SEV) in Hannover und Umgebung.",
+            "isPartOf": {
+              "@id": "https://citybustransit.de/#website"
+            },
+            "about": {
+              "@id": "https://citybustransit.de/#localbusiness"
+            },
+            "primaryImageOfPage": {
+              "@id": "https://citybustransit.de/#logo"
+            },
+            "inLanguage": "de-DE"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://citybustransit.de/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Startseite",
+                "item": "https://citybustransit.de/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://citybustransit.de/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Welche Busleistungen bietet City Bus Transit GmbH an?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Wir bieten Vereinsfahrten, Shuttle-Service, Gruppenfahrten, Eventfahrten, Tagesfahrten sowie Schienenersatzverkehr (SEV) und Notverkehr aus Garbsen für Hannover und Umgebung an."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wo ist City Bus Transit GmbH ansässig?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Unser Standort ist Bremer Str. 29a, 30827 Garbsen. Wir sind telefonisch unter +49 511 900 800 00 und per E-Mail unter info@citybustransit.de erreichbar."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Wie kann ich ein Angebot für eine Busfahrt anfragen?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Nutzen Sie das Kontaktformular auf unserer Website oder schreiben Sie an info@citybustransit.de. Wir antworten in der Regel innerhalb von 24 Stunden."
+                }
+              }
+            ]
           }
         ]
       }
     </script>
-    <meta property="og:title" content="City Bus Transit GmbH – Ihr zuverlässiger Partner für Busreisen">
-  <meta name="twitter:title" content="City Bus Transit GmbH – Ihr zuverlässiger Partner für Busreisen">
-  <meta property="og:description" content="City Bus Transit GmbH – sichere, komfortable und pünktliche Busreisen. Vereinsfahrten, Shuttle-Service, Gruppenfahrten, Eventfahrten und Tagesfahrten aus Garbsen.">
-  <meta name="twitter:description" content="City Bus Transit GmbH – sichere, komfortable und pünktliche Busreisen. Vereinsfahrten, Shuttle-Service, Gruppenfahrten, Eventfahrten und Tagesfahrten aus Garbsen.">
-  <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/de175eff-d4fd-45f1-89a6-6aa6c33cbde5/id-preview-720b454a--6b4cb732-b5e7-4faa-b7d7-bc1a5d39ecdb.lovable.app-1784348294917.png">
-  <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/de175eff-d4fd-45f1-89a6-6aa6c33cbde5/id-preview-720b454a--6b4cb732-b5e7-4faa-b7d7-bc1a5d39ecdb.lovable.app-1784348294917.png">
-</head>
+  </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <main style="max-width:720px;margin:2rem auto;padding:0 1rem;font-family:system-ui,sans-serif;color:#0b1e3f;line-height:1.6">
+        <h1>City Bus Transit GmbH – Busreisen &amp; Shuttle aus Garbsen</h1>
+        <p>
+          Sichere, komfortable und pünktliche Busreisen aus Garbsen für Hannover und Umgebung.
+          Leistungen: Vereinsfahrten, Shuttle-Service, Gruppenfahrten, Eventfahrten, Tagesfahrten
+          und Schienenersatzverkehr (SEV).
+        </p>
+        <h2>Kontakt</h2>
+        <ul>
+          <li>E-Mail: <a href="mailto:info@citybustransit.de">info@citybustransit.de</a></li>
+          <li>Telefon: <a href="tel:+4951190080000">+49 511 900 800 00</a></li>
+          <li>Adresse: Bremer Str 29a, 30827 Garbsen</li>
+        </ul>
+        <p><a href="https://citybustransit.de/">Zur Website</a></p>
+      </main>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
